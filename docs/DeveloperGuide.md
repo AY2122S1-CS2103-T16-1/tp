@@ -362,7 +362,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **System: UNion Application (UNa)**\
 **Use case: UC05 - Remove all contacts**\
 **Actor: User**\
-**Guarantees:** All contacts are deleted from UNa\
+**Guarantees:** All contacts are deleted from UNa
 
 **MSS:**
    1. User inputs command to remove all contacts
