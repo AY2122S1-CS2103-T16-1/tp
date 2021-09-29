@@ -262,22 +262,25 @@ _{Explain here how the data archiving feature will be implemented}_
 * can type fast
 * prefers typing to mouse interactions
 * is reasonably comfortable using CLI apps
+* computing student with prior experience in using Unix-commands
 
-**Value proposition**: manage contacts faster than a typical mouse/GUI driven app
+### Value Proposition
 
+- manage contacts faster and more conveniently than a typical mouse/GUI driven app
+- use a set of Unix-like commands that CS students are already familiar with so that they don't have to re-learn, thus helping ease of adoption
+- skills learned while using this app are transferable to other tools
 
 ### User stories
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​                                    | I want to …​                     | So that I can…​                                                        |
-| -------- | ------------------------------------------ | ------------------------------ | ---------------------------------------------------------------------- |
-| `* * *`  | new user                                   | see usage instructions         | refer to instructions when I forget how to use the App                 |
-| `* * *`  | user                                       | add a new person               |                                                                        |
-| `* * *`  | user                                       | delete a person                | remove entries that I no longer need                                   |
-| `* * *`  | user                                       | find a person by name          | locate details of persons without having to go through the entire list |
-| `* *`    | user                                       | hide private contact details   | minimize chance of someone else seeing them by accident                |
-| `*`      | user with many persons in the address book | sort persons by name           | locate a person easily                                                 |
+| Priority | As a …​                                 | I want to …​                                       | So that I can…​                                         |
+| -------- | ------------------------------------------ | ----------------------------------------------------- | ---------------------------------------------------------- |
+| `* * *`  | user                                       | create a folder                                       | folder related contacts together                           |
+| `* * *`  | user                                       | view all the folders that I created                   |                                                            |
+| `* * *`  | user                                       | delete a folder                                       | remove folders when they become irrelevant                 |
+| `* * *`  | user                                       | add a user to a folder                                | folder related contacts together and find them efficiently |
+| `* * *`  | experienced computing student              | use my knowledge of Unix commands to navigate the app | use the app without learning a new set of commands         |
 
 *{More to be added}*
 
@@ -315,6 +318,13 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 1.  Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
 2.  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
 3.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
+4.  Should work well for standard screen resolutions 1920x1080 and higher, and, for screen scales 100% and 125%.
+5.  Should handle invalid user input gracefully and not crash.
+6.  On invalid user input, should prompt the user with information on the correct input format expected so that the user can learn how to use the commands.
+
+Project scope
+- The app is not required to handle communication with people, only keeping track of metadata associated with contacts
+- The app is not required to handle integration with message apps like Telegram and WhatsApp
 
 *{More to be added}*
 
