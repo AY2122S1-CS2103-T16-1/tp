@@ -154,18 +154,31 @@ Exits the program.
 
 Format: `exit`
 
-### Creating a group: `mkdir`
+### Creating a folder: `mkdir`
 
-Creates a group for contacts to be added into.
+Creates a folder for contacts to be added into.
 
-Format: `mkdir GROUP_NAME`
+Format: `mkdir FOLDER_NAME`
 
-* Creates a group with the name `GROUP_NAME`.
+* Creates a folder with the name `FOLDER_NAME`.
 
 Examples:
 
-* `mkdir CS2103` creates a group with the name `CS2103`.
+* `mkdir CS2103` creates a folder with the name `CS2103`.
 
+### Viewing list of folders: `ls -folders`
+
+Retrieve list of all folders created
+
+Format: `ls -folders`
+
+## Adding contacts to folder
+To organize and group contacts into an arbitrary folder
+Format: `echo CONTACT_INDEX >> FOLDER_NAME`
+- `CONTACT_INDEX` must be a positive integer 1, 2, 3, ...
+- `FOLDER_NAME` must be an existing folder
+    - Command fails if there is no existing folder with that name
+    
 ### Saving the data
 
 AddressBook data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
@@ -191,14 +204,19 @@ _Details coming soon ..._
 
 --------------------------------------------------------------------------------------------------------------------
 
+    
 ## Command summary
 
 Action | Format, Examples
 --------|------------------
-**Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague`
-**Clear** | `clear`
-**Delete** | `delete INDEX`<br> e.g., `delete 3`
-**Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
+**Add new contact** | `touch -n NAME -p PHONE_NUMBER -e EMAIL -a ADDRESS [-t TAG]` <br> e.g., `touch -n James Ho -p 22224444 -e jamesho@example.com -a 123, Clementi Rd, 1234665 -t friend -t colleague`
+**Clear contacts** | `rm -contacts`
+**Delete contact** | `rm INDEX`<br> e.g., `delete 3`
+**Edit contact** | `vim INDEX [-n NAME] [-p PHONE_NUMBER] [-e EMAIL] [-a ADDRESS] [-t TAG]` <br> e.g., `vim 2 -n James Lee -e jameslee@example.com`
 **Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
-**List** | `list`
+**List** | `ls -contacts`
 **Help** | `help`
+**View folders** | `ls -folders`
+**Create folder** | `mkdir FOLDER_NAME` e.g. `mkdir CS2103`
+**Delete folder** | `rmdir FOLDER_NAME` e.g. `rmdir CS1010`
+**Add contact to folder** | `echo INDEX >> FOLDER_NAME` e.g. `echo 3 >> CS2103`
