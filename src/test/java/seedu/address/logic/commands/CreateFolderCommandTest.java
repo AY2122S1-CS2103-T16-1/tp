@@ -86,6 +86,11 @@ class CreateFolderCommandTest {
         }
 
         @Override
+        public void setNewFolder(Folder oldFolder, Folder newFolder) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public ReadOnlyUserPrefs getUserPrefs() {
             throw new AssertionError("This method should not be called.");
         }

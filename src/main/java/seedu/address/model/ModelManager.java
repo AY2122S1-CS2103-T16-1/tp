@@ -125,9 +125,18 @@ public class ModelManager implements Model {
     /**
      * Deletes a folder
      */
+    @Override
     public void deleteFolder(Folder folder) {
         addressBook.deleteFolder(folder);
         updateFilteredFolderList(PREDICATE_SHOW_ALL_FOLDERS);
+    }
+
+    @Override
+    public void setNewFolder(Folder oldFolder, Folder newFolder) {
+        requireAllNonNull(oldFolder, newFolder);
+        addressBook.setNewFolder(oldFolder, newFolder);
+        updateFilteredFolderList(PREDICATE_SHOW_ALL_FOLDERS);
+
     }
 
     @Override
