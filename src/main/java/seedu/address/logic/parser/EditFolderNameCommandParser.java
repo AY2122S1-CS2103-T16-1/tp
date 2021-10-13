@@ -12,7 +12,7 @@ import seedu.address.model.folder.FolderName;
 public class EditFolderNameCommandParser implements Parser<EditFolderNameCommand> {
 
     private static final String EDIT_COMMAND_SEPARATOR = "|";
-    public static final String REGEX_FOR_MULTIPLE_FOLDER_SPLIT =  "\\"
+    public static final String REGEX_FOR_MULTIPLE_FOLDER_SPLIT = "\\"
             + EDIT_COMMAND_SEPARATOR;
 
     /**
@@ -26,10 +26,12 @@ public class EditFolderNameCommandParser implements Parser<EditFolderNameCommand
         ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(args, new Prefix(""));
         List<String> allValues = argMultimap.getAllValues(new Prefix(""));
         if (allValues.size() <= 1) {
-            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditFolderNameCommand.MESSAGE_USAGE));
+            throw new ParseException(String.format(
+                    MESSAGE_INVALID_COMMAND_FORMAT,
+                    EditFolderNameCommand.MESSAGE_USAGE));
         }
         FolderName[] folderNames = extractFolderNames(allValues);
-        assert folderNames.length == 2: "Should have exactly 2 folders only!";
+        assert folderNames.length == 2 : "Should have exactly 2 folders only!";
 
         return new EditFolderNameCommand(new Folder(folderNames[0]), new Folder(folderNames[1]));
     }
