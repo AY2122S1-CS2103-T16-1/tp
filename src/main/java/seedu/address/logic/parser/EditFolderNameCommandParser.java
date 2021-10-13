@@ -22,7 +22,6 @@ public class EditFolderNameCommandParser implements Parser<EditFolderNameCommand
      * @throws ParseException if the given {@code folderName} is invalid.
      */
     public EditFolderNameCommand parse(String args) throws ParseException {
-        System.out.println(args);
         ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(args, new Prefix(""));
         List<String> allValues = argMultimap.getAllValues(new Prefix(""));
         if (allValues.size() <= 1) {

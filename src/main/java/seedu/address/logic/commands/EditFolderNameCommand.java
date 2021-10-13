@@ -25,34 +25,34 @@ public class EditFolderNameCommand extends Command {
     public static final String MESSAGE_FOLDER_ALREADY_EXISTS = "Cannot rename folder to"
             + " an already existing folder in UNIon";
 
-    private final Folder folderToRename;
-    private final Folder folderToReplaceOld;
+    private final Folder oldFolder;
+    private final Folder newFolder;
 
     /**
      * Creates a EditFolderNameCommand to update
      * the specified {@code folderToRename} to the
      * {@code folderToReplace} name.
-     * @param folderToRename folder name to be changed.
-     * @param folderToReplace new folder to replace old folder.
+     * @param oldFolder folder name to be changed.
+     * @param newFolder new folder to replace old folder.
      */
-    public EditFolderNameCommand(Folder folderToRename, Folder folderToReplace) {
-        requireAllNonNull(folderToRename, folderToReplace);
-        this.folderToRename = folderToRename;
-        this.folderToReplaceOld = folderToReplace;
+    public EditFolderNameCommand(Folder oldFolder, Folder newFolder) {
+        requireAllNonNull(oldFolder, newFolder);
+        this.oldFolder = oldFolder;
+        this.newFolder = newFolder;
     }
 
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
-        if (!model.hasFolder(folderToRename)) {
+        if (!model.hasFolder(oldFolder)) {
             throw new CommandException(MESSAGE_NO_SUCH_FOLDER);
         }
-        if (model.hasFolder(folderToReplaceOld)) {
+        if (model.hasFolder(newFolder)) {
             throw new CommandException(MESSAGE_FOLDER_ALREADY_EXISTS);
         }
 
-        model.setNewFolder(folderToRename, folderToReplaceOld);
-        return new CommandResult(String.format(MESSAGE_SUCCESS_EDIT_FOLDER_NAME, folderToReplaceOld));
+        model.setNewFolder(oldFolder, newFolder);
+        return new CommandResult(String.format(MESSAGE_SUCCESS_EDIT_FOLDER_NAME, newFolder));
     }
 
     @Override
@@ -69,8 +69,8 @@ public class EditFolderNameCommand extends Command {
 
         // state check
         EditFolderNameCommand e = (EditFolderNameCommand) other;
-        return this.folderToRename.equals(e.folderToRename)
-                && this.folderToReplaceOld.equals(e.folderToReplaceOld);
+        return this.oldFolder.equals(e.oldFolder)
+                && this.newFolder.equals(e.newFolder);
     }
 
 
